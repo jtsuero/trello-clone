@@ -1,5 +1,6 @@
 import './ListBox.css';
 import React, {Component} from 'react';
+import api from './api';
 
 class ListBox extends Component {
   constructor() {
@@ -15,10 +16,19 @@ class ListBox extends Component {
     this.setState({[e.target.name]: e.target.value});
   };
 
+  handleCardSubmit = e => {
+    e.preventDefault();
+    api.createCard({
+      title: this.state.newCardTitle,
+      listId: this.props.listId,
+    });
+    this.setState({addCard: false, newCardTitle: ''});
+  };
+
   addCard = () => {
     if (this.state.addCard) {
       return (
-        <form className="add-list-form" onSubmit={this.handleListSubmit}>
+        <form className="add-list-form" onSubmit={this.handleCardSubmit}>
           <input
             type="input"
             name="newCardTitle"

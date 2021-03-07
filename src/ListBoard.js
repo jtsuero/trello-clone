@@ -17,7 +17,7 @@ class ListBoard extends Component {
     if (this.state.lists) {
       return this.state.lists.map(list => (
         <div key={list.id}>
-          <ListBox name={list.name} cards="card1" />
+          <ListBox name={list.name} listId={list.id} cards={list.cards} />
         </div>
       ));
     }
