@@ -25,11 +25,18 @@ class ListBoard extends Component {
     this.setState({[e.target.name]: e.target.value})
   }
 
+  handleListSubmit = (e) => {
+    e.preventDefault();
+    api.createList(this.state.newListTitle);
+    this.setState({addList: false, newListTitle: ''})
+
+  }
+
   //onclick show form
   addItem = () => {
     if (this.state.addList) {
       return (
-        <form className='add-list-form'>
+        <form className='add-list-form' onSubmit={this.handleListSubmit}>
           <input type='input'
             name='newListTitle'
             value={this.state.newListTitle}
