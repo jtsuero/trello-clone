@@ -11,9 +11,13 @@ class api {
     let newList = new List({name, id: this.nextListId})
     this.lists[this.nextListId] = newList;
     this.nextListId += 1;
-    console.log(this.lists)
     return newList;
 
+  }
+
+  getLists = () => {
+    console.log(Object.values(this.lists), 'test')
+    return Object.values(this.lists);
   }
 }
 

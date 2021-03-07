@@ -9,15 +9,20 @@ class ListBoard extends Component {
     this.state = {
       addList: false,
       newListTitle: '',
+      lists: null,
     }
   }
 
   displayLists = () => {
-    return (
-      <div>
-        <ListBox name='name' cards='card1' />
-      </div>
-    )
+    if (this.state.lists) {
+      return (
+        this.state.lists.map(list => (
+          <div key={list.id}>
+            <ListBox name={list.name} cards='card1' />
+          </div>
+        ))
+      )
+    }
   }
 
   handleChange = (e) => {
@@ -28,11 +33,9 @@ class ListBoard extends Component {
   handleListSubmit = (e) => {
     e.preventDefault();
     api.createList(this.state.newListTitle);
-    this.setState({addList: false, newListTitle: ''})
-
+    this.setState({addList: false, newListTitle: '', lists: api.getLists()})
   }
 
-  //onclick show form
   addItem = () => {
     if (this.state.addList) {
       return (
@@ -48,7 +51,9 @@ class ListBoard extends Component {
       )
     } else {
       return (
-        <input type='button' value='+ Add Another List' className='add-list-button' onClick={() => this.setState({addList: true})} />
+        <input type='button'
+          value='+ Add Another List'
+          className='add-list-button' onClick={() => this.setState({addList: true})} />
       )
     }
   }
