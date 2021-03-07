@@ -3,9 +3,10 @@ import Card from './Card';
 
 class api {
   constructor() {
-    this.listIds = {};
     this.lists = {};
+    this.cards = {};
     this.nextListId = 1;
+    this.nextCardId = 1;
   }
 
   createList = name => {
@@ -19,8 +20,10 @@ class api {
     return Object.values(this.lists);
   };
 
-  createCard = title => {
-    let newCard = new Card(title);
+  createCard = ({title, listId}) => {
+    let newCard = new Card({title, id: this.nextCardId});
+    this.cards[this.nextCardId] = newCard;
+    this.lists[listId].cards.push(newCard);
     return newCard;
   };
 }
