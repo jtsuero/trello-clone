@@ -1,10 +1,10 @@
 import './App.css';
-import Home from './Home.js';
+import ListBoard from './ListBoard.js';
 
 function App() {
   return (
     <div className="App">
-      <Home />
+      <ListBoard />
     </div>
   );
 }
