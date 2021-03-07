@@ -7,7 +7,7 @@ class ListBoard extends Component {
 
   displayLists = () => {
     return (
-      <div className='list-board'>
+      <div>
         <ListBox name='name' cards='card1' />
       </div>
     )
@@ -15,7 +15,7 @@ class ListBoard extends Component {
 
   render() {
     return (
-      <div className='home-container'>
+      <div className='board-container'>
         {this.displayLists()}
       </div>
     )
