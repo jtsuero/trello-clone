@@ -1,5 +1,6 @@
 import './ListBox.css';
 import React, {Component} from 'react';
+import CardBox from './CardBox';
 import api from './api';
 
 class ListBox extends Component {
@@ -66,7 +67,7 @@ class ListBox extends Component {
 
         <div className="card-container">
           {this.props.cards.map(card => (
-            <div key={card.id}>{card.title}</div>
+            <CardBox title={card.title} id={card.id} />
           ))}
         </div>
         {this.addCard()}
