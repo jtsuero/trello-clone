@@ -1,70 +1,77 @@
 import React, {Component} from 'react';
 import ListBox from './ListBox';
 import api from './api';
-import './ListBoard.css'
+import './ListBoard.css';
 
 class ListBoard extends Component {
   constructor() {
-    super()
+    super();
     this.state = {
       addList: false,
       newListTitle: '',
       lists: null,
-    }
+    };
   }
 
   displayLists = () => {
     if (this.state.lists) {
-      return (
-        this.state.lists.map(list => (
-          <div key={list.id}>
-            <ListBox name={list.name} cards='card1' />
-          </div>
-        ))
-      )
+      return this.state.lists.map(list => (
+        <div key={list.id}>
+          <ListBox name={list.name} cards="card1" />
+        </div>
+      ));
     }
-  }
+  };
 
-  handleChange = (e) => {
+  handleChange = e => {
     e.preventDefault();
-    this.setState({[e.target.name]: e.target.value})
-  }
+    this.setState({[e.target.name]: e.target.value});
+  };
 
-  handleListSubmit = (e) => {
+  handleListSubmit = e => {
     e.preventDefault();
     api.createList(this.state.newListTitle);
-    this.setState({addList: false, newListTitle: '', lists: api.getLists()})
-  }
+    this.setState({addList: false, newListTitle: '', lists: api.getLists()});
+  };
 
-  addItem = () => {
+  addList = () => {
     if (this.state.addList) {
       return (
-        <form className='add-list-form' onSubmit={this.handleListSubmit}>
-          <input type='input'
-            name='newListTitle'
+        <form className="add-list-form" onSubmit={this.handleListSubmit}>
+          <input
+            type="input"
+            name="newListTitle"
             value={this.state.newListTitle}
-            placeholder='Enter list title...'
-            className='list-name-input'
-            onChange={this.handleChange} />
-          <input type='submit' value='Add List' className='submit-list-button' />
+            placeholder="Enter list title..."
+            className="list-name-input"
+            onChange={this.handleChange}
+          />
+          <input
+            type="submit"
+            value="Add List"
+            className="submit-list-button"
+          />
         </form>
-      )
+      );
     } else {
       return (
-        <input type='button'
-          value='+ Add Another List'
-          className='add-list-button' onClick={() => this.setState({addList: true})} />
-      )
+        <input
+          type="button"
+          value="+ Add Another List"
+          className="add-list-button"
+          onClick={() => this.setState({addList: true})}
+        />
+      );
     }
-  }
+  };
 
   render() {
     return (
-      <div className='board-container'>
+      <div className="board-container">
         {this.displayLists()}
-        {this.addItem()}
+        {this.addList()}
       </div>
-    )
+    );
   }
 }
 
