@@ -16,7 +16,6 @@ class api {
   }
 
   getLists = () => {
-    console.log(Object.values(this.lists), 'test')
     return Object.values(this.lists);
   }
 }
