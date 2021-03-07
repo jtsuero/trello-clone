@@ -64,7 +64,11 @@ class ListBox extends Component {
           <input type="button" value="..." className="list-button" />
         </div>
 
-        <div className="card-container"></div>
+        <div className="card-container">
+          {this.props.cards.map(card => (
+            <div key={card.id}>{card.title}</div>
+          ))}
+        </div>
         {this.addCard()}
       </div>
     );
