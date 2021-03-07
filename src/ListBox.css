@@ -22,3 +22,11 @@
   color: #6b778c;
   border: none;
 }
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+}

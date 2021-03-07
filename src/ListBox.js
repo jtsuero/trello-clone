@@ -1,4 +1,5 @@
 import './ListBox.css';
+import Card from './Card';
 
 const ListBox = () => {
   return (
@@ -11,7 +12,8 @@ const ListBox = () => {
       </div>
 
       <div className='card-container'>
-        Card 1
+        <Card />
+        <Card />
       </div>
       <input type='button' value='+ Add another card' className='list-button' />
     </div>
