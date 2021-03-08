@@ -6,6 +6,7 @@ import ListBoardNav from './ListBoardNav';
 function App() {
   return (
     <div className="App">
+      <div className="backdrop"></div>
       <Navbar />
       <ListBoardNav />
       <ListBoard />
