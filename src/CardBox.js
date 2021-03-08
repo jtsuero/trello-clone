@@ -1,8 +1,14 @@
 import './CardBox.css';
-const CardBox = ({title, id}) => {
+const CardBox = ({title, cardId, deleteCard}) => {
   return (
-    <div className="single-card" key={id}>
-      {title}
+    <div className="card-container">
+      <div className="single-card">{title}</div>
+      <input
+        type="button"
+        className="delete-card-button"
+        value="X"
+        onClick={() => deleteCard({cardId})}
+      />
     </div>
   );
 };
