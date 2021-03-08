@@ -1,0 +1,30 @@
+.card-container {
+  display: inherit;
+}
+
+.delete-card-button {
+  right: 30px;
+  position: relative;
+  height: 20px;
+  top: 10px;
+  background-color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.delete-card-button:hover {
+  background-color: #d3d3d3;
+}
+
+.single-card {
+  background-color: #fff;
+  border-radius: 3px;
+  box-shadow: 0 1px 0 rgb(9 30 66 / 25%);
+  cursor: pointer;
+  width: 90%;
+  min-height: 20px;
+  text-decoration: none;
+  margin: 5px;
+  padding: 5px;
+}

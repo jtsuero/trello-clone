@@ -1,11 +1,8 @@
-import './Card.css';
-
-const Card = () => {
-  return (
-    <div className='single-card'>
-      Sample Text
-    </div>
-  )
+class Card {
+  constructor({id, title}) {
+    this.id = id;
+    this.title = title;
+  }
 }
 
 export default Card;
