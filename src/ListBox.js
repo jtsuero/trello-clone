@@ -72,7 +72,9 @@ class ListBox extends Component {
     let cardName = (
       <div
         className="list-name"
-        onClick={() => this.setState({editName: true})}
+        onClick={() =>
+          this.setState({editName: true, newListName: this.props.name})
+        }
       >
         {this.props.name}
       </div>
