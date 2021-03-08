@@ -1,0 +1,41 @@
+.navbar-container {
+  display: flex;
+  justify-content: space-around;
+  background-color: #add8e6;
+  padding: 3px;
+}
+
+.left-cluster {
+  display: flex;
+  position: absolute;
+  left: 10px;
+}
+.middle-cluster {
+  display: flex;
+  align-items: center;
+  border-radius: 3px;
+}
+.right-cluster {
+  display: flex;
+  position: absolute;
+  right: 10px;
+}
+
+.nav-icon {
+  font-size: 1.2rem;
+  margin: 5px;
+  border-radius: 3px;
+  color: black;
+  background-color: #f0f8ff;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.logo-icon {
+  font-size: 1.2rem;
+  margin: 5px;
+  border-radius: 3px;
+  color: black;
+  padding: 5px;
+  cursor: pointer;
+}
