@@ -59,11 +59,6 @@ class ListBox extends Component {
     }
   };
 
-  deleteCard = ({cardId}) => {
-    api.deleteCard({listId: this.props.listId, cardId});
-    this.setState({addCard: false});
-  };
-
   submitNameChange = e => {
     e.preventDefault();
     this.props.updateName({
@@ -112,7 +107,7 @@ class ListBox extends Component {
             <CardBox
               title={card.title}
               cardId={card.id}
-              deleteCard={this.deleteCard}
+              deleteCard={this.props.deleteCard}
               key={card.id}
             />
           ))}
