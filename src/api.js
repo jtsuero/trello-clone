@@ -16,6 +16,10 @@ class api {
     return newList;
   };
 
+  deleteList = listId => {
+    delete this.lists[listId];
+  };
+
   updateList = ({listId, name}) => {
     this.lists[listId].name = name;
     return this.lists[listId];

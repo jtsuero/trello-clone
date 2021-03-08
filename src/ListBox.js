@@ -99,7 +99,12 @@ class ListBox extends Component {
       <div className="list-container">
         <div className="header-container">
           {cardName}
-          <input type="button" value="..." className="list-button" />
+          <input
+            type="button"
+            value="X"
+            className="list-button"
+            onClick={() => this.props.deleteList(this.props.listId)}
+          />
         </div>
 
         <div className="cards-container">
