@@ -81,13 +81,14 @@ class ListBox extends Component {
     );
     if (this.state.editName) {
       cardName = (
-        <form onSubmit={this.submitNameChange}>
+        <form onSubmit={this.submitNameChange} className="list-name-form">
           <input
             type="text"
             value={this.state.newListName}
             name="newListName"
             placeholder={this.props.name}
             onChange={this.handleChange}
+            className="list-name-edit-input"
           />
         </form>
       );
