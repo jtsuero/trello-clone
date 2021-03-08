@@ -4,7 +4,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faStar} from '@fortawesome/free-solid-svg-icons';
 
 const ListBoardNav = () => {
-  const [menuActive, toggleMenu] = useState(true);
+  const [menuActive, toggleMenu] = useState(false);
 
   const sideMenu = () => {
     if (menuActive) {
