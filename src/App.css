@@ -1,4 +1,17 @@
 .App {
   height: 100vh;
   width: 100vw;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+}
+
+.backdrop {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  background: url('./ggbridge.jpg');
+  background-size: cover;
+  opacity: 0.5;
 }
