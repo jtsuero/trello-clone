@@ -23,6 +23,7 @@ class ListBoard extends Component {
             cards={list.cards}
             updateName={this.updateName}
             deleteList={this.deleteList}
+            deleteCard={this.deleteCard.bind(this, list.id)}
           />
         </div>
       ));
@@ -78,6 +79,11 @@ class ListBoard extends Component {
 
   deleteList = listId => {
     api.deleteList(listId);
+    this.setState({lists: api.getLists()});
+  };
+
+  deleteCard = (listId, {cardId}) => {
+    api.deleteCard({listId: listId, cardId});
     this.setState({lists: api.getLists()});
   };
 

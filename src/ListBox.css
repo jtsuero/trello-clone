@@ -15,7 +15,8 @@
 }
 
 .list-name {
-  width: 80%;
+  width: 100%;
+  padding: 5px;
 }
 
 .list-button {
@@ -37,4 +38,21 @@
   margin-bottom: 0;
   overflow-y: auto;
   overflow-x: hidden;
+}
+
+.card-name-input {
+  padding: 10px;
+  margin: 5px;
+  border: none;
+  border-radius: 3px;
+}
+
+.list-name-form {
+  width: 100%;
+}
+
+.list-name-edit-input {
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
 }

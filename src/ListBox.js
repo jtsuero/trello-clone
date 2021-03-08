@@ -59,11 +59,6 @@ class ListBox extends Component {
     }
   };
 
-  deleteCard = ({cardId}) => {
-    api.deleteCard({listId: this.props.listId, cardId});
-    this.setState({addCard: false});
-  };
-
   submitNameChange = e => {
     e.preventDefault();
     this.props.updateName({
@@ -77,20 +72,23 @@ class ListBox extends Component {
     let cardName = (
       <div
         className="list-name"
-        onClick={() => this.setState({editName: true})}
+        onClick={() =>
+          this.setState({editName: true, newListName: this.props.name})
+        }
       >
         {this.props.name}
       </div>
     );
     if (this.state.editName) {
       cardName = (
-        <form onSubmit={this.submitNameChange}>
+        <form onSubmit={this.submitNameChange} className="list-name-form">
           <input
             type="text"
             value={this.state.newListName}
             name="newListName"
             placeholder={this.props.name}
             onChange={this.handleChange}
+            className="list-name-edit-input"
           />
         </form>
       );
@@ -112,7 +110,7 @@ class ListBox extends Component {
             <CardBox
               title={card.title}
               cardId={card.id}
-              deleteCard={this.deleteCard}
+              deleteCard={this.props.deleteCard}
               key={card.id}
             />
           ))}
