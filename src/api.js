@@ -16,6 +16,11 @@ class api {
     return newList;
   };
 
+  updateList = ({listId, name}) => {
+    this.lists[listId].name = name;
+    return this.lists[listId];
+  };
+
   getLists = () => {
     return Object.values(this.lists);
   };

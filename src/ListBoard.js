@@ -17,10 +17,20 @@ class ListBoard extends Component {
     if (this.state.lists) {
       return this.state.lists.map(list => (
         <div key={list.id}>
-          <ListBox name={list.name} listId={list.id} cards={list.cards} />
+          <ListBox
+            name={list.name}
+            listId={list.id}
+            cards={list.cards}
+            updateName={this.updateName}
+          />
         </div>
       ));
     }
+  };
+
+  updateName = (listId, name) => {
+    api.updateList(listId, name);
+    this.setState({newListTitle: ''});
   };
 
   handleChange = e => {

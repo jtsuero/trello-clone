@@ -9,6 +9,8 @@ class ListBox extends Component {
     this.state = {
       addCard: false,
       newCardTitle: '',
+      editName: false,
+      newListName: '',
     };
   }
 
@@ -62,11 +64,41 @@ class ListBox extends Component {
     this.setState({addCard: false});
   };
 
+  submitNameChange = e => {
+    e.preventDefault();
+    this.props.updateName({
+      listId: this.props.listId,
+      name: this.state.newListName,
+    });
+    this.setState({newListName: '', editName: false});
+  };
+
   render() {
+    let cardName = (
+      <div
+        className="list-name"
+        onClick={() => this.setState({editName: true})}
+      >
+        {this.props.name}
+      </div>
+    );
+    if (this.state.editName) {
+      cardName = (
+        <form onSubmit={this.submitNameChange}>
+          <input
+            type="text"
+            value={this.state.newListName}
+            name="newListName"
+            placeholder={this.props.name}
+            onChange={this.handleChange}
+          />
+        </form>
+      );
+    }
     return (
       <div className="list-container">
         <div className="header-container">
-          <div className="list-name">{this.props.name}</div>
+          {cardName}
           <input type="button" value="..." className="list-button" />
         </div>
 
