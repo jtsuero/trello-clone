@@ -57,6 +57,11 @@ class ListBox extends Component {
     }
   };
 
+  deleteCard = ({cardId}) => {
+    api.deleteCard({listId: this.props.listId, cardId});
+    this.setState({addCard: false});
+  };
+
   render() {
     return (
       <div className="list-container">
@@ -66,8 +71,13 @@ class ListBox extends Component {
         </div>
 
         <div className="card-container">
-          {this.props.cards.map(card => (
-            <CardBox title={card.title} id={card.id} />
+          {Object.values(this.props.cards).map(card => (
+            <CardBox
+              title={card.title}
+              cardId={card.id}
+              deleteCard={this.deleteCard}
+              key={card.id}
+            />
           ))}
         </div>
         {this.addCard()}

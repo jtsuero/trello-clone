@@ -23,8 +23,13 @@ class api {
   createCard = ({title, listId}) => {
     let newCard = new Card({title, id: this.nextCardId});
     this.cards[this.nextCardId] = newCard;
-    this.lists[listId].cards.push(newCard);
+    this.lists[listId].cards[this.nextCardId] = newCard;
+    this.nextCardId += 1;
     return newCard;
+  };
+
+  deleteCard = ({listId, cardId}) => {
+    delete this.lists[listId].cards[cardId];
   };
 }
 
