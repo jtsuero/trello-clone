@@ -70,7 +70,7 @@ class ListBox extends Component {
           <input type="button" value="..." className="list-button" />
         </div>
 
-        <div className="card-container">
+        <div className="cards-container">
           {Object.values(this.props.cards).map(card => (
             <CardBox
               title={card.title}
